@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         int toadEyesCount = 0;          //Жабьи глаза
@@ -5,7 +7,21 @@ public class Main {
         int ravenBonesCount = 0;        //Кости ворона
         int dumplingsCount = 0;         //Пельмени(а почему, собственно нет? xD )
 
+        boolean isCanCoock = false;
+
         //todo реализовать ввод пользователем кол-ва ингредиентов.
+
+        System.out.println("Введите кол-во жабьих глаз: ");
+        toadEyesCount = new Scanner(System.in).nextInt();
+
+        System.out.println("Введите кол-во слез вурдалака: ");
+        ghoulTearsCount = new Scanner(System.in).nextInt();
+
+        System.out.println("Введите кол-во костей ворона: ");
+        ravenBonesCount = new Scanner(System.in).nextInt();
+
+        System.out.println("Введите кол-во пельменей: ");
+        dumplingsCount = new Scanner(System.in).nextInt();
 
         //Рецепты Эликсиров:
         // 1. 3 Жабьих глаза + 1 кость ворона - Эликсир зоркости
@@ -14,5 +30,26 @@ public class Main {
         // 4. 5 слез вурдалака + 10 пельменей + 4 жабьих глаза + 3 кости ворона - Запретный эликсир
 
         //todo дописать логику программы сюда
+
+
+        if (toadEyesCount >= 3 && ravenBonesCount >= 1){
+            System.out.println("Вы можете создать \"Эликсир зоркости\"");
+            isCanCoock = true;
+        }
+        if (ravenBonesCount >= 2 && dumplingsCount >= 4){
+            System.out.println("Вы можете создать \"Эликсир стойкости\"");
+            isCanCoock = true;
+        }
+        if (ghoulTearsCount >= 7 && dumplingsCount >= 1 && toadEyesCount >= 2){
+            System.out.println("Вы можете создать \"Эликсир скрытности\"");
+            isCanCoock = true;
+        }
+        if (ghoulTearsCount >= 5 &&  dumplingsCount >= 10 && toadEyesCount >= 4 && ravenBonesCount >= 3){
+            System.out.println("Вы можете создать \"Запретный эликсир\"");
+            isCanCoock = true;
+        }
+        if (isCanCoock == false){
+            System.out.println("Нельзя приготовить");
+        }
     }
 }
